@@ -5,8 +5,8 @@ const app = new App({
 	props: {
 		name: 'GRNVS GO BR!',
 		len: 0,
-		color: '#ff00ff',
-		tutorSheets: ['02', '03']
+		color: '#0065bd',
+		tutorSheets: ['03', '02']
 	}
 });
 

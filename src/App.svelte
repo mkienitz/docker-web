@@ -58,7 +58,8 @@
 			<li><a href="/files/toolkit{sheet}.pdf">Woche {sheet}</a></li>
 		{/each}
 	</ul>
-	<p>Use WASD or click :)</p>
+	<p class="BBB"><a href="https://bbb.maxkienitz.com">BBB-Raum</a></p>
+	<p class="footnote">Use WASD or click :)</p>
 </main>
 
 <style>
@@ -73,21 +74,21 @@
 		color: var(--color);
 		text-transform: uppercase;
 		font-size: 4em;
-		font-weight: 100;
+		font-weight: 200;
 	}
 
 	ul {
 		padding: 0;
 	}
 
-	li {
+	li, .BBB {
 		text-transform: uppercase;
 		font-size: 3em;
 		font-weight: 100;
 		list-style-type: none;
 	}
 
-	p {
+	.footnote {
 		margin-top: 5em;
 	}
 
