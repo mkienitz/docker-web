@@ -2,41 +2,71 @@
 	export let len;
 	export let name;
 	export let color;
-	export let tutor_sheets = ['02', '03'];
+	export let tutorSheets;
+
 	export function handleKeydown(event) {
 		const key = event.key;
 		switch (key) {
 			case "w":
 			case "s":
-				color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+				randomizeColor();
 				break;
 			case "a":
-				len = Math.max(1, len - 1);
+				decSize();
 				break;
 			case "d":
-				len = Math.min(10, len + 1);
+				incSize();
 				break;
 		}
-		name = "M" + "a".repeat(len) + "x";
+		updateName();
+	}
+
+	let shrink = true;
+	export function handleClick() {
+		if (shrink) {
+			decSize();
+		} else {
+			incSize();
+		}
+		updateName();
+	}
+
+	function incSize() {
+		len = Math.min(10, len + 1);
+		shrink = len == 10 ? true : false;
+	}
+
+	function decSize() {
+		len = Math.max(0, len - 1);
+		shrink = len == 0 ? false : true;
+	}
+
+	function updateName() {
+		name = "GRNVS GO BR" + "R".repeat(len) + "!";
+	}
+
+	function randomizeColor() {
+		color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
 	}
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
 <main>
-	<h1 style="--color : {color}">{name}</h1>
+	<h1 on:click={handleClick} style="--color : {color} ">{name}</h1>
 	<ul>
-		{#each tutor_sheets as sheet, i}
+		{#each tutorSheets as sheet, i}
 			<li><a href="/files/toolkit{sheet}.pdf">Woche {sheet}</a></li>
 		{/each}
 	</ul>
+	<p>Use WASD or click :)</p>
 </main>
 
 <style>
 	main {
 		text-align: center;
 		/* padding: 0em; */
-		/* max-width: 240px; */
-		/* margin: 0 auto; */
+		max-width: 240px;
+		margin: 0 auto;
 	}
 
 	h1 {
@@ -55,6 +85,10 @@
 		font-size: 3em;
 		font-weight: 100;
 		list-style-type: none;
+	}
+
+	p {
+		margin-top: 5em;
 	}
 
 	@media (min-width: 640px) {

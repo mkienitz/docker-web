@@ -3,9 +3,10 @@ import App from './App.svelte';
 const app = new App({
 	target: document.body,
 	props: {
-		name: 'Max',
-		len: 1,
-		color: '#ff00ff'
+		name: 'GRNVS GO BR!',
+		len: 0,
+		color: '#ff00ff',
+		tutorSheets: ['02', '03']
 	}
 });
 
