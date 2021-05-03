@@ -29,16 +29,17 @@
 			incSize();
 		}
 		updateName();
+		randomizeColor();
 	}
 
 	function incSize() {
 		len = Math.min(10, len + 1);
-		shrink = len == 10 ? true : false;
+		shrink = len == 10;
 	}
 
 	function decSize() {
 		len = Math.max(0, len - 1);
-		shrink = len == 0 ? false : true;
+		shrink = len != 0;
 	}
 
 	function updateName() {
@@ -65,7 +66,6 @@
 <style>
 	main {
 		text-align: center;
-		/* padding: 0em; */
 		max-width: 240px;
 		margin: 0 auto;
 	}
@@ -81,7 +81,8 @@
 		padding: 0;
 	}
 
-	li, .BBB {
+	li,
+	.BBB {
 		text-transform: uppercase;
 		font-size: 3em;
 		font-weight: 100;
