@@ -47,7 +47,11 @@
 	}
 
 	function randomizeColor() {
-		color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+		let newCol = "#";
+		for (let i = 0; i < 3; ++i) {
+			newCol += Math.round(Math.random() * 155 + 100).toString(16);
+		}
+		color = newCol;
 	}
 </script>
 
@@ -74,7 +78,7 @@
 		color: var(--color);
 		text-transform: uppercase;
 		font-size: 4em;
-		font-weight: 200;
+		font-weight: 250;
 	}
 
 	ul {
@@ -98,7 +102,7 @@
 			max-width: none;
 		}
 	}
-	
+
 	@media (prefers-color-scheme: dark) {
 		.footnote {
 			color: #adadad;
