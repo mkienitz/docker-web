@@ -98,4 +98,14 @@
 			max-width: none;
 		}
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		body {
+			background-color: #282828;
+		}
+		
+		.footnote {
+			color: #adadad;
+		}
+	}
 </style>
