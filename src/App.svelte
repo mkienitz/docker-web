@@ -98,4 +98,10 @@
 			max-width: none;
 		}
 	}
+	
+	@media (prefers-color-scheme: dark) {
+		.footnote {
+			color: #adadad;
+		}
+	}
 </style>
