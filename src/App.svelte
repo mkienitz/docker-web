@@ -2,7 +2,7 @@
 	export let len;
 	export let name;
 	export let color;
-	export let tutorSheets;
+	export let files;
 
 	export function handleKeydown(event) {
 		const key = event.key;
@@ -59,11 +59,11 @@
 <main>
 	<h1 on:click={handleClick} style="--color : {color} ">{name}</h1>
 	<ul>
-		{#each tutorSheets as sheet, i}
-			<li><a href="/files/toolkit{sheet}.pdf">Woche {sheet}</a></li>
+		{#each files as file}
+			<li><a href="/files/{file.filename}">{file.title}</a></li>
 		{/each}
 	</ul>
-	<p class="BBB"><a href="https://bbb.maxkienitz.com">BBB-Raum</a></p>
+	<p class="BBB"><a href="https://bbb.maxkienitz.com">BBB Room</a></p>
 	<p class="footnote">Use WASD or click :)</p>
 </main>
 
