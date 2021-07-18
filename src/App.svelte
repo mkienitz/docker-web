@@ -59,6 +59,7 @@
 <main>
 	<h1 on:click={handleClick} style="--color : {color} ">{name}</h1>
 	<ul>
+		<li><a href="https://terminplaner4.dfn.de/NAyTDhcGxD7Cqabt">Terminumfrage - Fragestunde</a></li>
 		{#each files as file}
 			<li><a href="/files/{file.filename}">{file.title}</a></li>
 		{/each}
