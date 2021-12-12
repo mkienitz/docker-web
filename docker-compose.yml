@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  grnvs_webpage:
+    build: .
+    container_name: "grnvs_webpage"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`grnvs.maxkienitz.com`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=customresolver"
+    networks:
+      - traefikker
+
+networks:
+  traefikker:
+    external: true
+    name: "traefikker"
+    
